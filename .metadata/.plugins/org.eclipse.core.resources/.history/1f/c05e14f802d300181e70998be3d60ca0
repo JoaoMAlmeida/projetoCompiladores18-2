@@ -1,0 +1,9 @@
+grammar projetoCompiladores.Pascal with org.eclipse.xtext.common.Terminals
+
+generate pascal "http://www.Pascal.projetoCompiladores"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

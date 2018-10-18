@@ -1,0 +1,33 @@
+grammar projetoCompiladores.Pascal with org.eclipse.xtext.common.Terminals
+
+generate pascal "http://www.Pascal.projetoCompiladores"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
+
+Class_delc:
+	(MODIFY)? 'class' name=ID '{' body=Class_body '}' 
+;
+
+Class_body:
+	attrs+=Attr_delc methods+=Method_delc	
+;
+
+Attr_delc:
+	attr=Attr_smt
+;
+
+Method_delc:
+	(MODIFY)? type=Type name=ID '(' (params=Param_list)? ')' '{' body=Body '}'
+;
+
+Body:
+	(smts+=Smt ';')*
+;
+
+terminal MODIFY:
+	'public' | 'private' | 'protected' | 'default'
+;

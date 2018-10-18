@@ -1,0 +1,11 @@
+grammar projetoCompiladores.Pascal with org.eclipse.xtext.common.Terminals
+
+generate pascal "http://www.Pascal.projetoCompiladores"
+
+terminal DIGITO:
+	"0".."9"
+;
+
+terminal COMENTARIO :
+	'(*' -> '*)' | '{' -> '}'
+;
