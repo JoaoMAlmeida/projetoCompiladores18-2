@@ -1,0 +1,56 @@
+grammar projetoCompiladores.Pascal with org.eclipse.xtext.common.Terminals
+
+generate pascal "http://www.Pascal.projetoCompiladores"
+
+terminal SEQUENCIA_NUMERICA:
+	( NUMERO_INTEIRO | NUMERO_REAL | NUMERO_INTEIRO_SIGNED | NUMERO_REAL_SIGNED ) ".."	
+;
+
+terminal ADD_OP:
+	"+" | "-" 	
+; 
+
+terminal MULTIP_OP:
+	"*" | "/" 
+;
+
+terminal REL_OP:
+	"=" | "<>" | "<" | "<=" | ">" | ">=" 
+;
+
+terminal NUMERO_INTEIRO_SIGNED:
+	ADD_OP NUMERO_INTEIRO	
+;
+
+terminal NUMERO_INTEIRO: 
+	SEQUENCIA_DIGITO_UNSIGNED	
+;
+
+terminal NUMERO_REAL_SIGNED:
+	ADD_OP NUMERO_REAL
+;
+
+terminal NUMERO_REAL:
+	SEQUENCIA_DIGITO_UNSIGNED "." ( SEQUENCIA_DIGITO_UNSIGNED ) ? ( ( "E" | "e" ) SEQUENCIA_DIGITO ) ? | 
+	SEQUENCIA_DIGITO_UNSIGNED ( "E" | "e" ) SEQUENCIA_DIGITO	
+;
+
+terminal SEQUENCIA_DIGITO_UNSIGNED:
+	DIGITO+
+;
+
+terminal SEQUENCIA_DIGITO:
+	ADD_OP ? SEQUENCIA_DIGITO_UNSIGNED	
+;
+
+terminal DIGITO:
+	"0".."9"
+;
+
+terminal COMENTARIO:
+	'(*' -> '*)' | '{' -> '}'
+;
+
+terminal PALAVRA_CHAVE:
+	"and" | "array" | "asm" | "begin"
+;
