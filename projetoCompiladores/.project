@@ -3,6 +3,10 @@
 	<name>projetoCompiladores</name>
 	<comment></comment>
 	<projects>
+		<project>org.xtext.example.Pascal</project>
+		<project>org.xtext.example.Pascal.sdk</project>
+		<project>org.xtext.example.Pascal.tests</project>
+		<project>org.xtext.example.Pascal.ui</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
